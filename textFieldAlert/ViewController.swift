@@ -13,7 +13,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    
+    func TextFieldAlert() {
+        
+        let alert = UIAlertController(title: "Sign In with Google Account", message: "Please Sign In", preferredStyle: .alert)
+        
+        
+        
+        alert.addTextField { <#UITextField#> in
+            <#code#>
+        }
+    }
 
 
+    @IBAction func btnTapped(_ sender: UIButton) {
+    }
 }
 
