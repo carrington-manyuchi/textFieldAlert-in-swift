@@ -36,7 +36,25 @@ class ViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
-            print("Continue Tapped")
+            
+            //Read textFields
+            
+            guard let fields = alert.textFields, fields.count == 2 else {
+                return
+            }
+            let emailFields = fields[0]
+            let passwordFields = fields[1]
+            
+            
+            guard let email = emailFields.text, !email.isEmpty,
+                  let password = passwordFields.text, !password.isEmpty else {
+                print("Invalid Entries")
+                return
+            }
+            
+            print("Email: \(email)")
+            print("Password: \(password)")
+            
         }))
         
         present(alert, animated: true, completion: nil)
@@ -44,6 +62,9 @@ class ViewController: UIViewController {
 
 
     @IBAction func btnTapped(_ sender: UIButton) {
+        TextFieldAlert()
+        
+        
     }
 }
 
