@@ -19,11 +19,27 @@ class ViewController: UIViewController {
         
         let alert = UIAlertController(title: "Sign In with Google Account", message: "Please Sign In", preferredStyle: .alert)
         
+        // MARK: - TextFields Created
         
-        
-        alert.addTextField { <#UITextField#> in
-            <#code#>
+        alert.addTextField { textField in
+            textField.placeholder = "Enter email"
+            textField.returnKeyType = .next
+            textField.keyboardType = .emailAddress
         }
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Enter Password"
+            textField.returnKeyType = .continue
+            textField.isSecureTextEntry = true
+        }
+        
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
+            print("Continue Tapped")
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
 
 
